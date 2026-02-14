@@ -1,0 +1,232 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 300px;
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #0a0a0a;
+  color: #e0e0e0;
+}
+
+.container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.logo {
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;
+  filter: grayscale(1) brightness(1.2);
+}
+
+h1 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: -0.3px;
+}
+
+.subtitle {
+  font-size: 11px;
+  color: #555;
+  margin-bottom: 14px;
+  letter-spacing: 0.3px;
+}
+
+.option {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 2px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 11px;
+  color: #666;
+  user-select: none;
+}
+
+.option input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  border: 1px solid #333;
+  border-radius: 3px;
+  background: #111;
+  cursor: pointer;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.option input[type="checkbox"]:checked {
+  background: #fff;
+  border-color: #fff;
+}
+
+.option input[type="checkbox"]:checked::after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 1px;
+  width: 4px;
+  height: 8px;
+  border: solid #000;
+  border-width: 0 1.5px 1.5px 0;
+  transform: rotate(45deg);
+}
+
+.option span {
+  letter-spacing: 0.2px;
+}
+
+.clone-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 16px;
+  border: 1px solid #222;
+  border-radius: 8px;
+  background: #fff;
+  color: #000;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  letter-spacing: -0.2px;
+}
+
+.clone-btn:hover {
+  background: #e8e8e8;
+}
+
+.clone-btn:active {
+  background: #d4d4d4;
+  transform: scale(0.98);
+}
+
+.clone-btn:disabled {
+  background: #1a1a1a;
+  color: #555;
+  border-color: #1a1a1a;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-icon {
+  width: 14px;
+  height: 14px;
+}
+
+.progress-area {
+  width: 100%;
+  margin-top: 14px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 3px;
+  background: #1a1a1a;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: #fff;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.status-text {
+  margin-top: 6px;
+  font-size: 10px;
+  color: #444;
+  text-align: center;
+  font-family: 'Consolas', 'SF Mono', monospace;
+}
+
+.success-area {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  padding: 8px 12px;
+  background: #0f0f0f;
+  border: 1px solid #1a1a1a;
+  border-radius: 6px;
+  animation: fadeIn 0.2s ease;
+}
+
+.success-icon {
+  width: 14px;
+  height: 14px;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.success-text {
+  font-size: 11px;
+  color: #888;
+}
+
+.error-area {
+  width: 100%;
+  margin-top: 14px;
+  padding: 8px 12px;
+  background: #0f0f0f;
+  border: 1px solid #1a1a1a;
+  border-radius: 6px;
+  animation: fadeIn 0.2s ease;
+}
+
+.error-text {
+  font-size: 11px;
+  color: #666;
+}
+
+.hidden {
+  display: none !important;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.pulsing {
+  animation: pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.4;
+  }
+}

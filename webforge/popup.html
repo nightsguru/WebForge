@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebForge</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="icons/icon48.png" alt="WebForge" class="logo">
+      <h1>WebForge</h1>
+    </div>
+    <p class="subtitle">Clone any page in one click</p>
+
+    <label class="option">
+      <input type="checkbox" id="sitemapToggle">
+      <span>Generate sitemap.xml</span>
+    </label>
+    <label class="option">
+      <input type="checkbox" id="cleanToggle" checked>
+      <span>Remove tracking scripts</span>
+    </label>
+
+    <button id="cloneBtn" class="clone-btn">
+      <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 5v14M5 12h14" />
+      </svg>
+      <span id="btnText">Clone Page</span>
+    </button>
+
+    <div id="progressArea" class="progress-area hidden">
+      <div class="progress-bar">
+        <div id="progressFill" class="progress-fill"></div>
+      </div>
+      <p id="statusText" class="status-text">Initializing...</p>
+    </div>
+
+    <div id="successArea" class="success-area hidden">
+      <svg class="success-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <path d="M20 6L9 17l-5-5" />
+      </svg>
+      <p class="success-text">Page cloned successfully!</p>
+    </div>
+
+    <div id="errorArea" class="error-area hidden">
+      <p id="errorText" class="error-text"></p>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+
+</html>
