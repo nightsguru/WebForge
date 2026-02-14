@@ -4,7 +4,7 @@ Clone any web page with all its assets in one click. Get a ready-to-open local c
 
 Works on Chrome and Firefox.
 
-![WebForge popup](icon.png)
+<img width="600" height="150" alt="WebForge" src="https://github.com/user-attachments/assets/aac1b0d8-39df-4492-9600-6e518efc9792" />
 
 ## What it does
 
