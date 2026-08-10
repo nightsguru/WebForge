@@ -1,12 +1,16 @@
 {
     "manifest_version": 3,
     "name": "WebForge",
-    "version": "1.0.0",
-    "description": "Clone any web page with all assets in one click",
+    "version": "1.2.1",
+    "description": "Clone web pages or whole sites with assets in one click",
     "permissions": [
         "activeTab",
+        "tabs",
         "downloads",
         "scripting"
+    ],
+    "host_permissions": [
+        "<all_urls>"
     ],
     "action": {
         "default_popup": "popup.html",

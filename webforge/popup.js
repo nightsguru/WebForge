@@ -7,8 +7,31 @@
     const successArea = document.getElementById('successArea');
     const errorArea = document.getElementById('errorArea');
     const errorText = document.getElementById('errorText');
+    const crawlToggle = document.getElementById('crawlToggle');
+    const crawlLimitRow = document.getElementById('crawlLimitRow');
+    const maxPagesInput = document.getElementById('maxPages');
 
     let working = false;
+
+    function actionLabel() {
+        return crawlToggle.checked ? 'Clone Site' : 'Clone Page';
+    }
+
+    function syncCrawlUi() {
+        crawlLimitRow.classList.toggle('hidden', !crawlToggle.checked);
+        if (!working) btnText.textContent = actionLabel();
+    }
+
+    function resolveMaxPages() {
+        const raw = (maxPagesInput.value || '').trim();
+        if (!raw) return 10;
+        const n = parseInt(raw, 10);
+        if (!Number.isFinite(n) || n < 1) return 10;
+        return Math.min(n, 500);
+    }
+
+    crawlToggle.addEventListener('change', syncCrawlUi);
+    syncCrawlUi();
 
     function setProgress(pct, msg) {
         progressFill.style.width = pct + '%';
@@ -32,7 +55,7 @@
     function resetBtn() {
         working = false;
         cloneBtn.disabled = false;
-        btnText.textContent = 'Clone Page';
+        btnText.textContent = actionLabel();
         cloneBtn.classList.remove('pulsing');
     }
 
@@ -54,9 +77,9 @@
         errorArea.classList.add('hidden');
         progressArea.classList.remove('hidden');
         cloneBtn.disabled = true;
-        btnText.textContent = 'Cloning...';
+        btnText.textContent = crawlToggle.checked ? 'Crawling...' : 'Cloning...';
         cloneBtn.classList.add('pulsing');
-        setProgress(0, 'Capturing page...');
+        setProgress(0, crawlToggle.checked ? 'Starting crawl...' : 'Capturing page...');
 
         try {
             const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
@@ -72,7 +95,9 @@
                 tabUrl: tab.url,
                 tabTitle: tab.title,
                 buildSitemap: document.getElementById('sitemapToggle').checked,
-                cleanTracking: document.getElementById('cleanToggle').checked
+                cleanTracking: document.getElementById('cleanToggle').checked,
+                crawlSite: crawlToggle.checked,
+                maxPages: resolveMaxPages()
             });
         } catch (err) {
             showError('Failed: ' + err.message);

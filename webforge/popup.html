@@ -24,6 +24,14 @@
       <input type="checkbox" id="cleanToggle" checked>
       <span>Remove tracking scripts</span>
     </label>
+    <label class="option">
+      <input type="checkbox" id="crawlToggle">
+      <span>Crawl site (follow links)</span>
+    </label>
+    <label class="option crawl-limit hidden" id="crawlLimitRow">
+      <span>Max pages</span>
+      <input type="number" id="maxPages" min="1" max="500" placeholder="?" inputmode="numeric">
+    </label>
 
     <button id="cloneBtn" class="clone-btn">
       <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -43,7 +51,7 @@
       <svg class="success-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
         <path d="M20 6L9 17l-5-5" />
       </svg>
-      <p class="success-text">Page cloned successfully!</p>
+      <p class="success-text">Done — check your downloads</p>
     </div>
 
     <div id="errorArea" class="error-area hidden">

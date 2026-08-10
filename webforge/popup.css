@@ -93,6 +93,44 @@ h1 {
   letter-spacing: 0.2px;
 }
 
+.option.crawl-limit {
+  justify-content: space-between;
+  color: #555;
+}
+
+.option.crawl-limit input[type="number"] {
+  width: 52px;
+  background: #111;
+  color: #aaa;
+  border: 1px solid #333;
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-size: 11px;
+  text-align: center;
+  cursor: text;
+}
+
+.option.crawl-limit input[type="number"]::placeholder {
+  color: #444;
+}
+
+.option.crawl-limit input[type="number"]:focus {
+  outline: none;
+  border-color: #555;
+  color: #ddd;
+}
+
+.option.crawl-limit input[type="number"]::-webkit-outer-spin-button,
+.option.crawl-limit input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.option.crawl-limit input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
 .clone-btn {
   width: 100%;
   display: flex;
